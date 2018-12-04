@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
+  <a class="navbar-brand" routerLink="/"><img src="assets/favicon.png" alt="Twitter"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown" *ngIf="authService.loggedIn()">
+        <img
+          [src]="authService.userData.value.photo != null ? authService.userData.value.photo : 'assets/placeholder_user.png'"
+          [alt]="authService.userData.value.name" class="rounded-img dropdown-toggle" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="dropdown-menu dropdown-menu-right bg-white" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" routerLink="/profile">Profile</a>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </li>
+      <li class="nav-item" *ngIf="!authService.loggedIn()">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="!authService.loggedIn()">
+        <a class="nav-link" routerLink="/register">Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,88 @@
+<main role="main" class="container mt-5 pt-5" *ngIf="authService.loggedIn()">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card bg-white">
+        <div class="card-header">
+          <form [formGroup]="form" class="form-group mb-0" (ngSubmit)="onSubmit()">
+            <div class="form-group input-group mb-0">
+              <input type="text" class="form-control" formControlName="body" placeholder="What's happening?"
+                     autocomplete="off">
+              <span class="input-group-btn">
+              <button class="btn" type="submit" [disabled]="form.invalid">Tweet</button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <div class="card-body">
+          <div class="tweet row py-3" *ngFor="let item of results">
+            <div class="col-auto user-img">
+              <img [src]="item.author.photo != null ? item.author.photo : 'assets/placeholder_user.png'"
+                   [alt]="item.author.name" class="rounded-circle">
+            </div>
+            <div class="col pl-0">
+              <div class="col align-self-start">
+                <b>{{ item.author.name }}</b> <span
+                class="text-muted"> @ {{ item.author.username }}; {{item.date}}</span>
+              </div>
+              <div class="col align-self-center tweet-body">
+                {{item.body}}
+              </div>
+              <div class="col align-self-end mt-3">
+                <div *ngIf="item.link != null">
+                  <a target="_blank" [href]="item.link.url" class="media">
+                    <div class="img-contain" *ngIf="item.link.cover != null"
+                         [style.backgroundImage]="'url(' + item.link.cover + ' )' | safePipe: 'style'"></div>
+                    <div class="img-contain" *ngIf="item.link.cover == null"
+                         [style.backgroundImage]="'url(assets/placeholder_tweet.png)'"></div>
+                    <div class="media-body">
+                      <br>
+                      <h5 class="mt-0">{{ item.link.title }}</h5>
+                      <p>{{ item.link.description }}</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card bg-white" style="overflow: hidden;">
+        <div class="card-header">
+          Connect with People
+        </div>
+        <div class="card-body p-2">
+
+          <div class="connection" *ngFor="let user of users; let i = index">
+            <div class="col-4 pr-2 ">
+              <img
+                [src]="user.photo != null ? user.photo : 'assets/placeholder_user.png'" [alt]="user.name"
+                class="rounded-circle">
+            </div>
+            <div class="col-8 pl-2">
+              <div class="name">
+                <b>{{ user.name }}</b> <span
+                class="text-muted">@{{ user.username }}</span>
+              </div>
+              <a (click)="onFollow(user.id, i)" class="btn btn-outline-info">Follow</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<main role="main" class="container mt-5 pt-5" *ngIf="!authService.loggedIn()">
+  <div class="content">
+    <div class="title m-b-md">
+      Twitter Angular
+    </div>
+
+    <div class="links">
+      One framework. Mobile & desktop.
+    </div>
+  </div>
+</main>

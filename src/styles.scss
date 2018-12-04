@@ -1,1 +1,265 @@
 /* You can add global styles to this file, and also import other style files */
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #444546;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  border: none;
+}
+
+.bg-light {
+  background-color: #f3f3f3 !important;
+}
+
+.text-muted {
+  color: #959a9e !important;
+}
+
+img {
+  width: 100%;
+}
+
+.navbar-brand img {
+  width: 30px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  margin-right: 15px;
+  border-radius: .25rem !important;
+  border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.custom-file input {
+  cursor: pointer;
+}
+
+.custom-file-label {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, .125);
+
+  &::after {
+    background-color: #1DA1F2;
+    font-size: 0.9rem;
+    transition: 0.2s all ease-in-out;
+    border: none;
+    color: white;
+    padding: .45rem .75rem;
+  }
+}
+
+.custom-file:hover .custom-file-label::after {
+  background-color: #1c93dd;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #1DA1F2;
+}
+
+.form-group .edit-profile {
+  border-radius: .25rem !important;
+}
+
+button[type="submit"] {
+  border-radius: 100px !important;
+  background-color: #1DA1F2;
+  color: white;
+  font-size: 0.9em;
+
+  &:hover {
+    background-color: #1c93dd;
+  }
+}
+
+.rounded-img {
+  cursor: pointer;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.dropdown-item:hover {
+  background-color: #f3f3f3;
+}
+
+.tweet {
+  border-bottom: 1px solid #d5d8db;
+
+  b a{
+    color: inherit;
+
+    &:hover {
+      color: #1DA1F2;
+    }
+  }
+
+  .user-img {
+    width: 80px;
+  }
+
+  .tweet-body {
+    font-size: 0.9em;
+  }
+
+  .media {
+    border: 1px solid #959a9e;
+    border-radius: .25rem;
+    padding: 10px 15px;
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+      border-color: #b7bdc2;
+    }
+
+    .media-body {
+      h5 {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      p {
+        font-weight: 300;
+        font-size: 0.9rem;
+      }
+    }
+
+    .img-contain {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      position: relative;
+      margin-right: 10px;
+      border-radius: .25rem;
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+}
+
+.photo {
+  position: absolute;
+  top: -100px;
+  left: 70px;
+  width: 200px;
+  height: 200px;
+
+  img {
+    border: 5px solid #dfdfdf;
+  }
+
+  .name {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .username {
+    opacity: 0.5;
+    font-weight: lighter;
+  }
+}
+
+.stats {
+  height: 60px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+  text-align: center;
+  color: #8b8b8b;
+
+  .btn-container {
+    height: 100%;
+    padding: 11px 0;
+
+    a {
+      border-radius: 100px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      padding: 8px 20px;
+      border-color: #1DA1F2;
+      color: #1DA1F2;
+
+      &:hover, &:active {
+        background-color: #1DA1F2;
+        color: white;
+      }
+    }
+  }
+  ul {
+    height: 100%;
+    padding-top: 5px;
+
+    a {
+      color: inherit;
+    }
+
+    li {
+      display: inline-block;
+      padding: 0 20px;
+      height: 100%;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      font-size: 0.9rem;
+
+      &:hover, &.active {
+        -webkit-box-shadow: inset 0px -3px 0px 0px #1DA1F2;
+        -moz-box-shadow: inset 0px -3px 0px 0px #1DA1F2;
+        box-shadow: inset 0px -3px 0px 0px #1DA1F2;
+        color: #1DA1F2;
+      }
+
+      .count {
+        display: block;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+.user-card {
+  border: none;
+
+  .card-img-top {
+    background-color: #1DA1F2;
+    height: 70px;
+  }
+
+  .card-body {
+    position: relative;
+
+    img {
+      position: absolute;
+      top: -40px;
+      width: 80px;
+      border-radius: 50%;
+      border: 4px solid white;
+    }
+
+    .btn-outline-info {
+      border-radius: 100px;
+      font-weight: bold;
+      font-size: 0.7rem;
+      padding: 5px 20px;
+      border-color: #1DA1F2;
+      color: #1DA1F2;
+
+      &:hover {
+        background-color: #1DA1F2;
+        color: white;
+      }
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+    }
+  }
+}
